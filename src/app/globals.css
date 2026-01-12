@@ -1,0 +1,254 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --accent-green: #39FF14;
+  --accent-green-dim: #2dd310;
+  --accent-red: #FF3939;
+  --surface: #1a1a1a;
+  --surface-hover: #252525;
+  --border: #333333;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent-green);
+  --color-accent-dim: var(--accent-green-dim);
+  --color-danger: var(--accent-red);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* { box-sizing: border-box; }
+
+html { color-scheme: dark; }
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-green); }
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.3), 0 0 40px rgba(57, 255, 20, 0.2), 0 0 60px rgba(57, 255, 20, 0.1);
+}
+
+.glow-red {
+  box-shadow: 0 0 15px rgba(255, 57, 57, 0.5), 0 0 30px rgba(255, 57, 57, 0.3);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.5), 0 0 20px rgba(57, 255, 20, 0.3);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-orbit { animation: orbit 3s linear infinite; }
+.animate-orbit-reverse { animation: orbit 4s linear infinite reverse; }
+.animate-orbit-slow { animation: orbit 6s linear infinite; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+/* Gradiente radial para nucleo do atomo */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%);
+}
+
+/* Animacao de digitacao para texto */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #39FF14; }
+}
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #39FF14;
+  animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Efeito de scan horizontal */
+@keyframes scan-line {
+  0% { transform: translateY(-100vh); opacity: 0; }
+  10% { opacity: 0.5; }
+  50% { opacity: 1; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.animate-scan { animation: scan-line 4s linear infinite; }
+
+/* Efeito de glitch */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.animate-glitch { animation: glitch 0.3s ease-in-out infinite; }
+
+/* Efeito de respiracao suave */
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+.animate-breathe { animation: breathe 4s ease-in-out infinite; }
+
+/* Animacao de pulso para botao neural */
+@keyframes neural-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(57, 255, 20, 0.7),
+                0 0 0 0 rgba(57, 255, 20, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(57, 255, 20, 0),
+                0 0 0 30px rgba(57, 255, 20, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(57, 255, 20, 0),
+                0 0 0 0 rgba(57, 255, 20, 0);
+  }
+}
+
+.animate-neural-pulse {
+  animation: neural-pulse 2s ease-out infinite;
+}
+
+/* Animacao de circuito eletrico */
+@keyframes circuit-flow {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+.animate-circuit {
+  animation: circuit-flow 3s linear infinite;
+  stroke-dasharray: 100 50;
+}
+
+/* Efeito de energia correndo */
+@keyframes energy-flow {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.animate-energy-flow {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(57, 255, 20, 0.2) 25%,
+    rgba(57, 255, 20, 0.8) 50%,
+    rgba(57, 255, 20, 0.2) 75%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: energy-flow 2s linear infinite;
+}
+
+/* Efeito de fade in com scale */
+@keyframes fade-in-scale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.5s ease-out forwards;
+}
+
+/* Animacao de linha de conexao */
+@keyframes connection-line {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  50% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-connection-line {
+  animation: connection-line 1.5s ease-out infinite;
+}
+
+/* Efeito de glow pulsante */
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(57, 255, 20, 0.8)) drop-shadow(0 0 40px rgba(57, 255, 20, 0.4));
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Estilo para modo mobile */
+@media (max-width: 768px) {
+  .mobile-panel {
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+
+  .mobile-safe-area {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JARVIS Icon Generator</title>
+</head>
+<body>
+  <h1>JARVIS Icons</h1>
+  <p>Clique com o botao direito em cada imagem e salve como PNG</p>
+
+  <h3>icon16.png</h3>
+  <canvas id="icon16" width="16" height="16"></canvas>
+
+  <h3>icon48.png</h3>
+  <canvas id="icon48" width="48" height="48"></canvas>
+
+  <h3>icon128.png</h3>
+  <canvas id="icon128" width="128" height="128"></canvas>
+
+  <script>
+    function drawIcon(canvasId, size) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+
+      // Background
+      ctx.fillStyle = '#0a0a0a';
+      ctx.fillRect(0, 0, size, size);
+
+      // Outer ring
+      ctx.beginPath();
+      ctx.arc(size/2, size/2, size*0.4, 0, Math.PI * 2);
+      ctx.strokeStyle = '#39FF14';
+      ctx.lineWidth = size * 0.06;
+      ctx.stroke();
+
+      // Inner glow
+      const gradient = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size*0.3);
+      gradient.addColorStop(0, '#39FF14');
+      gradient.addColorStop(0.5, 'rgba(57, 255, 20, 0.5)');
+      gradient.addColorStop(1, 'transparent');
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(size/2, size/2, size*0.25, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Center dot
+      ctx.fillStyle = '#39FF14';
+      ctx.beginPath();
+      ctx.arc(size/2, size/2, size*0.1, 0, Math.PI * 2);
+      ctx.fill();
+
+      // J letter
+      if (size >= 48) {
+        ctx.fillStyle = '#0a0a0a';
+        ctx.font = `bold ${size*0.3}px Arial`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('J', size/2, size/2);
+      }
+    }
+
+    drawIcon('icon16', 16);
+    drawIcon('icon48', 48);
+    drawIcon('icon128', 128);
+
+    // Auto download
+    ['icon16', 'icon48', 'icon128'].forEach(id => {
+      const canvas = document.getElementById(id);
+      const link = document.createElement('a');
+      link.download = id + '.png';
+      link.href = canvas.toDataURL('image/png');
+      document.body.appendChild(link);
+
+      const btn = document.createElement('button');
+      btn.textContent = 'Download ' + id;
+      btn.onclick = () => link.click();
+      document.body.appendChild(btn);
+      document.body.appendChild(document.createElement('br'));
+    });
+  </script>
+</body>
+</html>

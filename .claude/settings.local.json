@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "WebSearch",
+      "Bash(powershell -Command \"Get-Content ''C:/Users/Admin/ProjetoJarvisNegrao/src/components/ChatInterface.tsx'' | Select-Object -First 5\")",
+      "Bash(curl:*)",
+      "Bash(python:*)",
+      "Bash(node:*)",
+      "Bash(timeout:*)",
+      "Bash(powershell -Command \"Start-Sleep -Seconds 30; Invoke-RestMethod -Uri ''http://localhost:3001/api/chat'' -Method Post -ContentType ''application/json'' -Body ''{\"\"messages\"\":[{\"\"role\"\":\"\"user\"\",\"\"content\"\":\"\"Veja com o Gemini: diga oi\"\"}]}''\")",
+      "Bash(npm run dev:*)",
+      "Bash(taskkill //F //PID 37984)",
+      "Bash(npx next dev -p 3001)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(dir:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(Remove-Item -Force C:UsersAdminProjetoJarvisNegraotmpclaude-* -ErrorAction SilentlyContinue)",
+      "Bash(Remove-Item -Force C:UsersAdminProjetoJarvisNegrao*.mp3 -ErrorAction SilentlyContinue)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nJARVIS Negrao v1.0 - Assistente IA completo\n\nFuncionalidades implementadas:\n- Interface futurista com tema preto/verde neon\n- Boot screen com Matrix formando JARVIS + voz de boas-vindas\n- Widget atomo central com orbitas animadas\n- Chat com IA \\(Gemini/Claude\\)\n- Text-to-Speech com ElevenLabs\n- Spy de ofertas com monitoramento diario\n- Painel de Ads com integracao UTMify\n- Smart Home panel \\(Tuya\\)\n- Controle remoto panel\n- Efeitos visuais: MatrixRain, CircuitLines, HUD\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git config:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdiciona relatorio de tarefas pendentes\n\n- Lista todas as funcionalidades pendentes\n- Define prioridades e complexidade\n- Documenta API keys necessarias\n- Sugere ordem de implementacao\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit:*)",
+      "Bash(wc:*)",
+      "Bash(vercel --version:*)",
+      "Bash(vercel ls:*)"
+    ]
+  }
+}
